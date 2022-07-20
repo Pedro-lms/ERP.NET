@@ -1,0 +1,17 @@
+<nav class="navbar">
+    <div class="container">
+        <ul class="nav nav-tabs nav-justified">
+            <li role="presentation">
+                <a asp-area=@Constants.Areas.Scheduler asp-controller="Home" asp-action=@nameof(HomeController.EmployeesScheduler) role="tab" ata-toggle="tab">Employees Scheduler</a>
+            </li>
+            <li role="presentation">
+                <a asp-area=@Constants.Areas.Scheduler asp-controller="Home" asp-action=@nameof(HomeController.Search) role="tab" ata-toggle="tab">Search</a>
+            </li>
+            <li role="presentation">
+                <a asp-area=@Constants.Areas.Scheduler asp-controller="Payroll" asp-action=@nameof(PayrollController.Index) role="tab" ata-toggle="tab">Payrolls</a>
+            </li>  
+        </ul>
+    </div>
+</nav>
+
+

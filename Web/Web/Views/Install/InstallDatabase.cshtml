@@ -1,0 +1,26 @@
+@model InstallDatabaseViewModel
+
+@{
+    var curentController = this.ViewContext.RouteData.Values["controller"].ToString();
+}
+
+<form asp-controller=@curentController asp-action=@nameof(InstallController.InstallDatabase) method="post" class="form-horizontal">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    @Html.EditorFor(x => x.User, "_AdminUserEdirorTemplate")
+    <hr />
+    <h3>Seed data into the database.</h3>
+    <div class="form-group">
+        <label asp-for="SeedData" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="SeedData" class="checkbox" type="checkbox" checked />
+        </div>
+    </div>
+    @Html.EditorFor(x => x.Company, "_CompanyEditorTemplate")
+    @Html.EditorFor(x => x.PayRate, "_PayRateEditorTemplate")
+    <hr />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-default">Continue</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+@model FilterViewModel
+
+@await Html.PartialAsync("_FilterPartial")
+<div class="container">
+    <div class="row">
+        <a class="btn btn-link" asp-area=@Constants.Areas.Companies asp-controller="Inquiries" asp-action=@nameof(InquiriesController.Create)>Create New</a>
+    </div>
+    <div class="row">
+        <a class="btn btn-link" asp-area=@Constants.Areas.Companies asp-controller="Inquiries" asp-action=@nameof(InquiriesController.Filter)>Show All</a>
+    </div>
+</div>
+<hr />
+@Html.DisplayFor(x => x.Inquiries, "Inquiries")
+

@@ -1,0 +1,33 @@
+@model EditUserViewModel
+
+<form asp-area="Admin" asp-controller="ControlPanel" asp-action="EditUser" method="post" class="form-horizontal">
+    <h4>Editing User - @Model.FullName</h4>
+    <hr />
+    <div asp-validation-summary="All" class="text-danger"></div>    
+    <div class="form-group">
+        <label asp-for="PhoneNumber" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ApplicationRoleName" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select class="form-control" asp-for="ApplicationRoleName" data-val="true" data-val-required="ApplicationRoleName">
+                @foreach (var role in @Model.ApplicationRoles)
+            {
+                    <option value=@role.Value>@role.Text</option>
+                }
+            </select>
+            <span asp-validation-for="ApplicationRoleName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-default">Save</button>
+        </div>
+    </div>
+</form>
+
+<a asp-area="Admin" asp-controller="ControlPanel" asp-action="ShowAllUsers" asp-rout>Cancel changes and return?</a>

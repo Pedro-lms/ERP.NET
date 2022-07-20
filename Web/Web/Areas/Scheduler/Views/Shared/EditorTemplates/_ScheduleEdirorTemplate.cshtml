@@ -1,0 +1,42 @@
+@model ScheduleViewModel
+
+<td>
+    <input asp-for="EmployeeId" type="hidden" value="@Model.EmployeeId" />
+    <input asp-for="Date" type="hidden" value="@Model.Date" />
+    <input asp-for="Id" type="hidden" value="@Model.Id" />
+    <div class="form-group-sm">
+        <label asp-for="ProjectId" class="col-md-6 control-label"></label>
+        <div class="col-md-6">
+            <select class="form-control" asp-for="ProjectId">
+                <option value="">Select Project</option>
+                @foreach (var projectOptions in Model.ProjectOptions)
+                {
+                    <option value=@projectOptions.Value>@projectOptions.Text</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group-sm">
+        <label asp-for="ScheduleOption" class="col-md-6 control-label"></label>
+        <div class="col-md-6">
+            <select class="form-control" asp-for="ScheduleOption">
+                @foreach (var shceduleOption in Model.ScheduleOptions)
+                {
+                    <option value=@shceduleOption.Value>@shceduleOption.Text</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group-sm">
+        <label asp-for="WorkHours" class="col-md-6 control-label"></label>
+        <div class="col-md-6">
+            <input asp-for="WorkHours" class="form-control" type="number"/>
+        </div>
+    </div>
+    <div class="form-group-sm">
+        <label asp-for="ExtraWorkHours" class="col-md-6 control-label"></label>
+        <div class="col-md-6">
+            <input asp-for="ExtraWorkHours" class="form-control" type="number" />
+        </div>
+    </div>
+</td>
