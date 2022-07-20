@@ -1,0 +1,16 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+configuration:
+- Debug
+- Release
+platform: Any CPU
+before_build:
+- cmd: >-
+    dotnet restore
+
+    nuget restore
+build:
+  parallel: true
+  verbosity: minimal
+test_script:
+- ps: dotnet test C:\projects\wilson\Accounting\Wilson.Accounting.Tests\Wilson.Accounting.Tests.csproj
